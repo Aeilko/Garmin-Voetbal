@@ -1,0 +1,11 @@
+<strings>
+    <string id="AppName">Voetbal</string>
+
+    <string id="upcoming_game">Komende wedstrijd</string>
+    <string id="current_game">Momenteel bezig</string>
+    <string id="game_team"> {Opponent} ({Away})</string>
+    <string id="game_time">{date and time}</string>
+
+    <string id="menu_label_1">Item 1</string>
+    <string id="menu_label_2">Item 2</string>
+</strings>
