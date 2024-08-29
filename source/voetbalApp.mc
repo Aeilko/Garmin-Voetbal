@@ -24,10 +24,10 @@ class voetbalApp extends Application.AppBase {
         return [ new voetbalView(), new voetbalDelegate() ];
     }
 
-    // function onStorageChanged() as Void {
-    //     System.println("Storage changed! Requesting update");
-    //     WatchUi.requestUpdate();
-    // }
+    function onStorageChanged() as Void {
+        System.println("Storage changed! Requesting update");
+        WatchUi.requestUpdate();
+    }
 
     // HTTPS handling
     function requestData() as Void {
@@ -45,6 +45,7 @@ class voetbalApp extends Application.AppBase {
         if (responseCode == 200) {
             System.println("Request Successful");
             Storage.setValue("data", data);
+            WatchUi.requestUpdate();
         }
         else {
             System.println("Something went wrong while receiving data");
