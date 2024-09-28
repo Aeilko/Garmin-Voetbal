@@ -32,7 +32,7 @@ class voetbalView extends WatchUi.View {
 			var time = new Time.Moment(ko);
 			var date = Gregorian.info(time, Time.FORMAT_SHORT);
 			var timeView = (findDrawableById("TextTime") as WatchUi.Text);
-			timeView.setText(Lang.format("$1$/$2$ $3$:$4$", [date.day.format("%02d"), date.month.format("%02d"), date.hour.format("%02d"), date.sec.format("%02d")]));
+			timeView.setText(Lang.format("$1$/$2$ $3$:$4$", [date.day.format("%02d"), date.month.format("%02d"), date.hour.format("%02d"), date.min.format("%02d")]));
 		}
 	}
 
