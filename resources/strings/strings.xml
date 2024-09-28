@@ -1,6 +1,8 @@
 <strings>
     <string id="AppName">Voetbal</string>
 
+    <string id="loading">Loading...</string>
+
     <string id="upcoming_game">Komende wedstrijd</string>
     <string id="current_game">Momenteel bezig</string>
     <string id="game_team"> {Opponent} ({Away})</string>

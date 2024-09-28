@@ -22,17 +22,34 @@ class voetbalView extends WatchUi.View {
 		var data = (Storage.getValue("data") as Dictionary);
 		if (data != null){
 			var game = (data["game"] as Dictionary);
+			if (game["in_progress"]){
+				var upcomingView = (findDrawableById("TextUpcoming") as WatchUi.Text);
+				upcomingView.setText("Momenteel bezig");
 
-			var opponent = (game["opponent"] as String);
-			opponent = opponent + " " + (game["away"] ? "(U)" : "(T)");
-			var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
-			oppView.setText(opponent);
+				var opponent = (game["opponent"] as String);
+				opponent = opponent + " " + (game["away"] ? "(U)" : "(T)");
+				var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
+				oppView.setText(opponent);
 
-			var ko = (game["kick_off"] as Number);
-			var time = new Time.Moment(ko);
-			var date = Gregorian.info(time, Time.FORMAT_SHORT);
-			var timeView = (findDrawableById("TextTime") as WatchUi.Text);
-			timeView.setText(Lang.format("$1$/$2$ $3$:$4$", [date.day.format("%02d"), date.month.format("%02d"), date.hour.format("%02d"), date.min.format("%02d")]));
+				var score = "" + game["score"]["home"] + " - " + game["score"]["away"] + " (" + game["minute"] + "')";
+				var timeView = (findDrawableById("TextTime") as WatchUi.Text);
+				timeView.setText(score);
+			}
+			else{
+				var upcomingView = (findDrawableById("TextUpcoming") as WatchUi.Text);
+				upcomingView.setText("Komende wedstrijd");
+
+				var opponent = (game["opponent"] as String);
+				opponent = opponent + " " + (game["away"] ? "(U)" : "(T)");
+				var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
+				oppView.setText(opponent);
+
+				var ko = (game["kick_off"] as Number);
+				var time = new Time.Moment(ko);
+				var date = Gregorian.info(time, Time.FORMAT_SHORT);
+				var timeView = (findDrawableById("TextTime") as WatchUi.Text);
+				timeView.setText(Lang.format("$1$/$2$ $3$:$4$", [date.day.format("%02d"), date.month.format("%02d"), date.hour.format("%02d"), date.min.format("%02d")]));
+			}
 		}
 	}
 
