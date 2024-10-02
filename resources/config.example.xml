@@ -1,0 +1,3 @@
+<properties>
+    <property id="apiURL" type="string">https://example.com/api/voetbal.json</property>
+</properties>

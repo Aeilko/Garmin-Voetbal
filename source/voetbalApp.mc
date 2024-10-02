@@ -31,7 +31,7 @@ class voetbalApp extends Application.AppBase {
 
     // HTTPS handling
     function requestData() as Void {
-        var url = "https://example.com/api/voetbal.json";
+        var url = Properties.getValue("apiURL");
         var params = {};
         var options = {
             :method => Communications.HTTP_REQUEST_METHOD_GET,
@@ -43,7 +43,6 @@ class voetbalApp extends Application.AppBase {
 
     function receiveData(responseCode as Number, data as Dictionary?) as Void {
         if (responseCode == 200) {
-            System.println("Request Successful");
             Storage.setValue("data", data);
             WatchUi.requestUpdate();
         }
