@@ -31,9 +31,10 @@ class voetbalView extends WatchUi.View {
 				var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
 				oppView.setText(opponent);
 
-				var score = "" + game["score"]["home"] + " - " + game["score"]["away"] + " (" + game["minute"] + "')";
+				var score = game["score"] as Dictionary;
+				var scoreTxt = "" + score["home"] + " - " + score["away"] + " (" + game["minute"] + "')";
 				var timeView = (findDrawableById("TextTime") as WatchUi.Text);
-				timeView.setText(score);
+				timeView.setText(scoreTxt);
 			}
 			else{
 				var upcomingView = (findDrawableById("TextUpcoming") as WatchUi.Text);
