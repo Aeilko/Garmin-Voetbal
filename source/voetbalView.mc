@@ -18,7 +18,30 @@ class voetbalView extends WatchUi.View {
 		// Basic layout
 		setLayout(Rez.Layouts.MainLayout(dc));
 
-		// Load data from storage
+		// Load data
+		updateText();
+	}
+
+	// Called when this View is brought to the foreground. Restore
+	// the state of this View and prepare it to be shown. This includes
+	// loading resources into memory.
+	function onShow() as Void {
+	}
+
+	// Update the view
+	function onUpdate(dc as Dc) as Void {
+		// Call the parent onUpdate function to redraw the layout
+		updateText();
+		View.onUpdate(dc);
+	}
+
+	// Called when this View is removed from the screen. Save the
+	// state of this View here. This includes freeing resources from
+	// memory.
+	function onHide() as Void {
+	}
+
+	private function updateText(){
 		var data = (Storage.getValue("data") as Dictionary);
 		if (data != null){
 			var game = (data["game"] as Dictionary);
@@ -53,23 +76,5 @@ class voetbalView extends WatchUi.View {
 				timeView.setText(Lang.format("$1$ $2$/$3$ $4$:$5$", [dow, date.day.format("%02d"), date.month.format("%02d"), date.hour.format("%02d"), date.min.format("%02d")]));
 			}
 		}
-	}
-
-	// Called when this View is brought to the foreground. Restore
-	// the state of this View and prepare it to be shown. This includes
-	// loading resources into memory.
-	function onShow() as Void {
-	}
-
-	// Update the view
-	function onUpdate(dc as Dc) as Void {
-		// Call the parent onUpdate function to redraw the layout
-		View.onUpdate(dc);
-	}
-
-	// Called when this View is removed from the screen. Save the
-	// state of this View here. This includes freeing resources from
-	// memory.
-	function onHide() as Void {
 	}
 }
