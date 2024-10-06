@@ -1,4 +1,4 @@
-<layout id="MainLayout">
+<layout id="MatchLayout">
     <drawable id="Background" />
 
     <bitmap id="ImagePSV" x="center" y="5" filename="../drawables/psv-150x121.png" />

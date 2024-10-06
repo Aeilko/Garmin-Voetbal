@@ -21,7 +21,8 @@ class voetbalApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
-        return [ new voetbalView(), new voetbalDelegate() ];
+        var loop = new WatchUi.ViewLoop(new voetbalViewLoop(), {:wrap => true, :color => Graphics.COLOR_WHITE});
+        return [ loop, new ViewLoopDelegate(loop) ];
     }
 
     function onStorageChanged() as Void {
@@ -31,23 +32,45 @@ class voetbalApp extends Application.AppBase {
 
     // HTTPS handling
     function requestData() as Void {
-        var url = Properties.getValue("apiURL");
+        // Match data
+        var url = Properties.getValue("matchAPI");
         var params = {};
         var options = {
             :method => Communications.HTTP_REQUEST_METHOD_GET,
+            :context => {:type => "match",},
         };
         var responseCallback = method(:receiveData);
+        Communications.makeWebRequest(url, params, options, responseCallback);
 
+        // Stats data
+        url = Properties.getValue("statsAPI");
+        params = {};
+        options = {
+            :method => Communications.HTTP_REQUEST_METHOD_GET,
+            :context => {:type => "stats",},
+        };
+        responseCallback = method(:receiveData);
         Communications.makeWebRequest(url, params, options, responseCallback);
     }
 
-    function receiveData(responseCode as Number, data as Dictionary?) as Void {
+    function receiveData(responseCode as Number, data as Dictionary?, context as Lang.Object) as Void {
+        context = context as Dictionary;
         if (responseCode == 200) {
-            Storage.setValue("data", data);
-            WatchUi.requestUpdate();
+            if(context[:type].equals("match")){
+                Storage.setValue("match", data);
+                WatchUi.requestUpdate();
+            }
+            else if(context[:type].equals("stats")){
+                Storage.setValue("stats", data);
+                WatchUi.requestUpdate();
+            }
+            else{
+                System.println("Unknown request type: " + context[:type]);
+            }
         }
         else {
             System.println("Something went wrong while receiving data");
+            System.println("Context: " + context);
             System.println("Response: " + responseCode);
             System.println("Data: " + data);
         }

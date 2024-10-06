@@ -7,7 +7,7 @@ using Toybox.Application.Storage;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
-class voetbalView extends WatchUi.View {
+class matchView extends WatchUi.View {
 
 	function initialize() {
 		View.initialize();
@@ -16,7 +16,7 @@ class voetbalView extends WatchUi.View {
 	// Load your resources here
 	function onLayout(dc as Dc) as Void {
 		// Basic layout
-		setLayout(Rez.Layouts.MainLayout(dc));
+		setLayout(Rez.Layouts.MatchLayout(dc));
 
 		// Load data
 		updateText();
@@ -42,9 +42,9 @@ class voetbalView extends WatchUi.View {
 	}
 
 	private function updateText(){
-		var data = (Storage.getValue("data") as Dictionary);
-		if (data != null){
-			var game = (data["game"] as Dictionary);
+		var match = (Storage.getValue("match") as Dictionary);
+		if (match != null){
+			var game = (match["game"] as Dictionary);
 			if (game["in_progress"]){
 				var upcomingView = (findDrawableById("TextUpcoming") as WatchUi.Text);
 				upcomingView.setText("Momenteel bezig");
