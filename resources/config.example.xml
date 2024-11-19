@@ -1,4 +1,3 @@
 <properties>
-    <property id="matchAPI" type="string">https://example.com/api/voetbal.json</property>
-    <property id="statsAPI" type="string">https://example.com/api/stats.json</property>
+    <property id="teamAPI" type="string">https://example.com/api/teamAPI.json</property>
 </properties>

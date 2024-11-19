@@ -33,44 +33,27 @@ class voetbalApp extends Application.AppBase {
     // HTTPS handling
     function requestData() as Void {
         // Match data
-        var url = Properties.getValue("matchAPI");
+        var url = Properties.getValue("teamAPI");
         var params = {};
         var options = {
             :method => Communications.HTTP_REQUEST_METHOD_GET,
-            :context => {:type => "match",},
         };
         var responseCallback = method(:receiveData);
         Communications.makeWebRequest(url, params, options, responseCallback);
-
-        // Stats data
-        url = Properties.getValue("statsAPI");
-        params = {};
-        options = {
-            :method => Communications.HTTP_REQUEST_METHOD_GET,
-            :context => {:type => "stats",},
-        };
-        responseCallback = method(:receiveData);
-        Communications.makeWebRequest(url, params, options, responseCallback);
     }
 
-    function receiveData(responseCode as Number, data as Dictionary?, context as Lang.Object) as Void {
-        context = context as Dictionary;
+    function receiveData(responseCode as Number, data as Dictionary?) as Void {
         if (responseCode == 200) {
-            if(context[:type].equals("match")){
-                Storage.setValue("match", data);
-                WatchUi.requestUpdate();
+            if(data.hasKey("game")){
+                Storage.setValue("game", data["game"]);
             }
-            else if(context[:type].equals("stats")){
-                Storage.setValue("stats", data);
-                WatchUi.requestUpdate();
+            if(data.hasKey("statistics")){
+                Storage.setValue("stats", data["statistics"]);
             }
-            else{
-                System.println("Unknown request type: " + context[:type]);
-            }
+            WatchUi.requestUpdate();
         }
         else {
             System.println("Something went wrong while receiving data");
-            System.println("Context: " + context);
             System.println("Response: " + responseCode);
             System.println("Data: " + data);
         }

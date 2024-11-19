@@ -42,9 +42,8 @@ class statsView extends WatchUi.View {
 	}
 
 	private function updateText(){
-		var stats = (Storage.getValue("stats") as Dictionary);
-		if (stats != null){
-			var game = (stats["game"] as Dictionary);
+		var game = (Storage.getValue("stats") as Dictionary);
+		if (game != null){
 			var s = (game["stats"] as Dictionary);
 
 			var opponent = (game["opponent"] as String);

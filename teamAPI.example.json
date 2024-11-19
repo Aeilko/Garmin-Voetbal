@@ -1,0 +1,39 @@
+{
+  "game": {
+	"in_progress": false,
+	"opponent": "Groningen",
+	"away": false,
+	"kick_off": 1732392000,
+	"minute": "0",
+	"score": {
+	  "home": 0,
+	  "away": 0
+	}
+  },
+  "statistics": {
+	"opponent": "Girona",
+	"away": false,
+	"stats": {
+	  "xgoal": {
+		"home": "2.04",
+		"away": "0.76"
+	  },
+	  "shots": {
+		"home": 25,
+		"away": 7
+	  },
+	  "target": {
+		"home": 12,
+		"away": 3
+	  },
+	  "possession": {
+		"home": "62%",
+		"away": "38%"
+	  },
+	  "red": {
+		"home": 0,
+		"away": 1
+	  }
+	}
+  }
+}

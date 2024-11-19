@@ -42,9 +42,8 @@ class matchView extends WatchUi.View {
 	}
 
 	private function updateText(){
-		var match = (Storage.getValue("match") as Dictionary);
-		if (match != null){
-			var game = (match["game"] as Dictionary);
+		var game = (Storage.getValue("game") as Dictionary);
+		if (game != null){
 			if (game["in_progress"]){
 				var upcomingView = (findDrawableById("TextUpcoming") as WatchUi.Text);
 				upcomingView.setText("Momenteel bezig");
