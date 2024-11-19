@@ -21,6 +21,14 @@ class voetbalApp extends Application.AppBase {
     function onStop(state as Dictionary?) as Void {
     }
 
+    function onAppInstall() as Void {
+        Storage.clearValues();
+    }
+
+    function onAppUpdate() as Void {
+        Storage.clearValues();
+    }
+
     // Return the initial view of your application here
     function getInitialView() as [Views] or [Views, InputDelegates] {
         var loop = new WatchUi.ViewLoop(new voetbalViewLoop(), {:wrap => true, :color => Graphics.COLOR_WHITE});
