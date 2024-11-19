@@ -6,6 +6,8 @@ using Toybox.Application.Storage;
 
 class voetbalApp extends Application.AppBase {
 
+    static const TEAMS = [197, 1118];
+
     function initialize() {
         AppBase.initialize();
     }
@@ -32,28 +34,36 @@ class voetbalApp extends Application.AppBase {
 
     // HTTPS handling
     function requestData() as Void {
-        // Match data
-        var url = Properties.getValue("teamAPI");
-        var params = {};
-        var options = {
-            :method => Communications.HTTP_REQUEST_METHOD_GET,
-        };
-        var responseCallback = method(:receiveData);
-        Communications.makeWebRequest(url, params, options, responseCallback);
+        for(var i = 0; i < voetbalApp.TEAMS.size(); i++){
+            var team = voetbalApp.TEAMS[i] as Number;
+
+            // Match data
+            var url = Properties.getValue("teamAPI") + "?team=" + team;
+            var params = {};
+            var options = {
+                :method => Communications.HTTP_REQUEST_METHOD_GET,
+                :context => {:team => team,},
+            };
+            var responseCallback = method(:receiveData);
+            Communications.makeWebRequest(url, params, options, responseCallback);
+        }
     }
 
-    function receiveData(responseCode as Number, data as Dictionary?) as Void {
+    function receiveData(responseCode as Number, data as Dictionary?, context as Lang.Object) as Void {
         if (responseCode == 200) {
+            var res = {};
             if(data.hasKey("game")){
-                Storage.setValue("game", data["game"]);
+                res.put("game", data["game"]);
             }
             if(data.hasKey("statistics")){
-                Storage.setValue("stats", data["statistics"]);
+                res.put("stats", data["statistics"]);
             }
+            Storage.setValue(context[:team], res);
             WatchUi.requestUpdate();
         }
         else {
             System.println("Something went wrong while receiving data");
+            System.println("Context: " + context);
             System.println("Response: " + responseCode);
             System.println("Data: " + data);
         }

@@ -7,7 +7,12 @@ class voetbalViewLoop extends ViewLoopFactory {
     private var delegate as WatchUi.BehaviorDelegate;
 
     function initialize() {
-        self.views = [new matchView(), new statsView()];
+        self.views = [];
+        for(var i = 0; i < voetbalApp.TEAMS.size(); i++){
+            var team = voetbalApp.TEAMS[i] as Number;
+            self.views.add(new matchView(team));
+            self.views.add(new statsView(team));
+        }
         self.delegate = new voetbalDelegate();
         ViewLoopFactory.initialize();
     }

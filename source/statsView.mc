@@ -9,7 +9,10 @@ using Toybox.Time.Gregorian;
 
 class statsView extends WatchUi.View {
 
-	function initialize() {
+	private var teamID as Number;
+
+	function initialize(teamID as Number) {
+		self.teamID = teamID;
 		View.initialize();
 	}
 
@@ -42,23 +45,26 @@ class statsView extends WatchUi.View {
 	}
 
 	private function updateText(){
-		var game = (Storage.getValue("stats") as Dictionary);
-		if (game != null){
-			var s = (game["stats"] as Dictionary);
+		var team = (Storage.getValue(teamID) as Dictionary);
+		if (team != null){
+			var game = team["stats"] as Dictionary;
+			if (game != null){
+				var s = (game["stats"] as Dictionary);
 
-			var opponent = (game["opponent"] as String);
-			opponent = opponent + " " + (game["away"] ? "(U)" : "(T)");
-			var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
-			oppView.setText(opponent);
+				var opponent = (game["opponent"] as String);
+				opponent = opponent + " " + (game["away"] ? "(U)" : "(T)");
+				var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
+				oppView.setText(opponent);
 
-			for(var i = 0; i < s.keys().size(); i+=1){
-				var key = s.keys()[i];
-				var val = s.get(key) as Dictionary;
-				
-				var homeStat = (findDrawableById("Stat" + key + "Home") as WatchUi.Text);
-				var awayStat = (findDrawableById("Stat" + key + "Away") as WatchUi.Text);
-				homeStat.setText("" + val["home"]);
-				awayStat.setText("" + val["away"]);
+				for(var i = 0; i < s.keys().size(); i+=1){
+					var key = s.keys()[i];
+					var val = s.get(key) as Dictionary;
+					
+					var homeStat = (findDrawableById("Stat" + key + "Home") as WatchUi.Text);
+					var awayStat = (findDrawableById("Stat" + key + "Away") as WatchUi.Text);
+					homeStat.setText("" + val["home"]);
+					awayStat.setText("" + val["away"]);
+				}
 			}
 		}
 	}

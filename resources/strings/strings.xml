@@ -8,6 +8,7 @@
     <string id="game_team"> {Opponent} ({Away})</string>
     <string id="game_time">{date and time}</string>
 
-    <string id="menu_label_1">Item 1</string>
-    <string id="menu_label_2">Item 2</string>
+    <string id="team_197_name">PSV</string>
+
+    <string id="team_1118_name">Oranje</string>
 </strings>
