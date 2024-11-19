@@ -80,6 +80,16 @@ class matchView extends WatchUi.View {
 					timeView.setText(Lang.format("$1$ $2$/$3$ $4$:$5$", [dow, date.day.format("%02d"), date.month.format("%02d"), date.hour.format("%02d"), date.min.format("%02d")]));
 				}
 			}
+			else{
+				var upcomingView = (findDrawableById("TextUpcoming") as WatchUi.Text);
+				upcomingView.setText("Komende wedstrijd");
+
+				var oppView = (findDrawableById("TextOpponent") as WatchUi.Text);
+				oppView.setText("Onbekend");
+
+				var timeView = (findDrawableById("TextTime") as WatchUi.Text);
+				timeView.setText("");
+			}
 		}
 	}
 }

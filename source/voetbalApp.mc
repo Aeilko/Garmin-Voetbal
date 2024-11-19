@@ -61,6 +61,10 @@ class voetbalApp extends Application.AppBase {
             Storage.setValue(context[:team], res);
             WatchUi.requestUpdate();
         }
+        else if(responseCode == 444){
+            // Custom response code to indicate no known upcoming game
+            Storage.setValue(context[:team], {"game" => null});
+        }
         else {
             System.println("Something went wrong while receiving data");
             System.println("Context: " + context);
