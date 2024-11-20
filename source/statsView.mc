@@ -9,11 +9,11 @@ using Toybox.Time.Gregorian;
 
 class statsView extends WatchUi.View {
 
-	private var teamID as Number;
+	private var _teamID as Number;
 
 	function initialize(teamID as Number) {
-		self.teamID = teamID;
 		View.initialize();
+		self._teamID = teamID;
 	}
 
 	// Load your resources here
@@ -21,8 +21,9 @@ class statsView extends WatchUi.View {
 		// Basic layout
 		setLayout(Rez.Layouts.StatsLayout(dc));
 
-		// Load data
-		updateText();
+		// Custom background color
+		var bg = findDrawableById("Background") as CustomBackground;
+		bg.setColor(voetbalApp.TEAM_COLORS[self._teamID]);
 	}
 
 	// Called when this View is brought to the foreground. Restore
@@ -33,8 +34,10 @@ class statsView extends WatchUi.View {
 
 	// Update the view
 	function onUpdate(dc as Dc) as Void {
-		// Call the parent onUpdate function to redraw the layout
+		// Set texts before drawing layout
 		updateText();
+
+		// Call the parent onUpdate function to redraw the layout
 		View.onUpdate(dc);
 	}
 
@@ -45,7 +48,7 @@ class statsView extends WatchUi.View {
 	}
 
 	private function updateText(){
-		var team = (Storage.getValue(teamID) as Dictionary);
+		var team = (Storage.getValue(self._teamID) as Dictionary);
 		if (team != null){
 			var game = team["stats"] as Dictionary;
 			if (game != null){
@@ -59,6 +62,8 @@ class statsView extends WatchUi.View {
 				for(var i = 0; i < s.keys().size(); i+=1){
 					var key = s.keys()[i];
 					var val = s.get(key) as Dictionary;
+
+					System.println(val);
 					
 					var homeStat = (findDrawableById("Stat" + key + "Home") as WatchUi.Text);
 					var awayStat = (findDrawableById("Stat" + key + "Away") as WatchUi.Text);

@@ -9,11 +9,11 @@ using Toybox.Time.Gregorian;
 
 class matchView extends WatchUi.View {
 
-	private var teamID as Number;
+	private var _teamID as Number;
 
 	function initialize(teamID as Number) {
-		self.teamID = teamID;
 		View.initialize();
+		self._teamID = teamID;
 	}
 
 	// Load your resources here
@@ -21,8 +21,9 @@ class matchView extends WatchUi.View {
 		// Basic layout
 		setLayout(Rez.Layouts.MatchLayout(dc));
 
-		// Load data
-		updateText();
+		// Custom background color
+		var bg = findDrawableById("Background") as CustomBackground;
+		bg.setColor(voetbalApp.TEAM_COLORS[self._teamID]);
 	}
 
 	// Called when this View is brought to the foreground. Restore
@@ -33,8 +34,10 @@ class matchView extends WatchUi.View {
 
 	// Update the view
 	function onUpdate(dc as Dc) as Void {
-		// Call the parent onUpdate function to redraw the layout
+		// Set texts before drawing layout
 		updateText();
+
+		// Call the parent onUpdate function to redraw the layout
 		View.onUpdate(dc);
 	}
 
@@ -45,7 +48,7 @@ class matchView extends WatchUi.View {
 	}
 
 	private function updateText(){
-		var team = (Storage.getValue(teamID) as Dictionary);
+		var team = (Storage.getValue(self._teamID) as Dictionary);
 		if (team != null){
 			var game = team["game"] as Dictionary;
 			if (game != null){

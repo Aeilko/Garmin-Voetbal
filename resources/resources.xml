@@ -1,5 +1,0 @@
-<resources>
-    <drawable-list id="Background" background="0xED1C24">
-        <shape type="rectangle" x="0" y="0" width="fill" height="fill"></shape>
-    </drawable-list>
-</resources>

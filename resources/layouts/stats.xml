@@ -1,25 +1,25 @@
-<layout id="StatsLayout">
-    <drawable id="Background" />
+<layout id="StatsLayout" background="Graphics.COLOR_TRANSPARENT">
+	<drawable id="Background" class="CustomBackground" />
 
-    <label id="TextOpponent" text="@Strings.loading" x="center" y="50" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+	<label id="TextOpponent" text="@Strings.loading" x="center" y="50" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
 
-    <label id="StatxgoalHome" text="-" x="25%" y="120" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="StatxgoalText" text="xGoal" x="center" y="120" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="StatxgoalAway" text="-" x="75%" y="120" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+	<label id="StatxgoalHome" text="-" x="25%" y="120" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+	<label id="StatxgoalText" text="xGoal" x="center" y="120" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+	<label id="StatxgoalAway" text="-" x="75%" y="120" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 
-    <label id="StatshotsHome" text="-" x="25%" y="160" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="StatshotsText" text="Schoten" x="center" y="160" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="StatshotsAway" text="-" x="75%" y="160" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+	<label id="StatshotsHome" text="-" x="25%" y="160" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+	<label id="StatshotsText" text="Schoten" x="center" y="160" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+	<label id="StatshotsAway" text="-" x="75%" y="160" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 
-    <label id="StattargetHome" text="-" x="25%" y="200" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="StattargetText" text="Op doel" x="center" y="200" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="StattargetAway" text="-" x="75%" y="200" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+	<label id="StattargetHome" text="-" x="25%" y="200" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+	<label id="StattargetText" text="Op doel" x="center" y="200" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+	<label id="StattargetAway" text="-" x="75%" y="200" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 
-    <label id="StatpossessionHome" text="-" x="25%" y="240" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="StatpossessionText" text="Balbezit" x="center" y="240" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="StatpossessionAway" text="-" x="75%" y="240" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+	<label id="StatpossessionHome" text="-" x="25%" y="240" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+	<label id="StatpossessionText" text="Balbezit" x="center" y="240" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+	<label id="StatpossessionAway" text="-" x="75%" y="240" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 
-    <label id="StatredHome" text="-" x="25%" y="280" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
-    <label id="StatredText" text="Rood" x="center" y="280" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
-    <label id="StatredAway" text="-" x="75%" y="280" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
+	<label id="StatredHome" text="-" x="25%" y="280" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" />
+	<label id="StatredText" text="Rood" x="center" y="280" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_CENTER" />
+	<label id="StatredAway" text="-" x="75%" y="280" font="Graphics.FONT_SYSTEM_XTINY" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" />
 </layout>

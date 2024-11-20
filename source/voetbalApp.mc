@@ -7,6 +7,10 @@ using Toybox.Application.Storage;
 class voetbalApp extends Application.AppBase {
 
     static const TEAMS = [197, 1118];
+    static const TEAM_COLORS = {
+        197 => 0xED1C24,            // PSV
+        1118 => 0xF36C21,           // Dutch national
+    };
 
     function initialize() {
         AppBase.initialize();
