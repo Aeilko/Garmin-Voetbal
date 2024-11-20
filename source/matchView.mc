@@ -1,53 +1,22 @@
 import Toybox.Graphics;
 import Toybox.Lang;
 import Toybox.WatchUi;
-import Toybox.System;
 
 using Toybox.Application.Storage;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 
-class matchView extends WatchUi.View {
-
-	private var _teamID as Number;
+class matchView extends TeamTextView {
 
 	function initialize(teamID as Number) {
-		View.initialize();
-		self._teamID = teamID;
+		TeamTextView.initialize(teamID);
 	}
 
-	// Load your resources here
-	function onLayout(dc as Dc) as Void {
-		// Basic layout
-		setLayout(Rez.Layouts.MatchLayout(dc));
-
-		// Custom background color
-		var bg = findDrawableById("Background") as CustomBackground;
-		bg.setColor(voetbalApp.TEAM_COLORS[self._teamID]);
+	protected function getLayout(dc as Dc) {
+		return Rez.Layouts.MatchLayout(dc);
 	}
 
-	// Called when this View is brought to the foreground. Restore
-	// the state of this View and prepare it to be shown. This includes
-	// loading resources into memory.
-	function onShow() as Void {
-	}
-
-	// Update the view
-	function onUpdate(dc as Dc) as Void {
-		// Set texts before drawing layout
-		updateText();
-
-		// Call the parent onUpdate function to redraw the layout
-		View.onUpdate(dc);
-	}
-
-	// Called when this View is removed from the screen. Save the
-	// state of this View here. This includes freeing resources from
-	// memory.
-	function onHide() as Void {
-	}
-
-	private function updateText(){
+	protected function updateText(){
 		var team = (Storage.getValue(self._teamID) as Dictionary);
 		if (team != null){
 			var game = team["game"] as Dictionary;
