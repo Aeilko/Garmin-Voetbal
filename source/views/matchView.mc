@@ -12,6 +12,14 @@ class matchView extends TeamTextView {
 		TeamTextView.initialize(teamID);
 	}
 
+	function onLayout(dc as Dc) {
+		TeamTextView.onLayout(dc);
+
+		// Set team logo
+		var logo = findDrawableById("TeamLogo") as TeamLogo;
+		logo.setTeam(self._teamID);
+	}
+
 	protected function getLayout(dc as Dc) {
 		return Rez.Layouts.MatchLayout(dc);
 	}

@@ -1,3 +1,6 @@
 <drawables>
     <bitmap id="LauncherIcon" filename="psv-70x70.png" />
+
+    <bitmap id="TeamLogo197" filename="psv-150x121.png" />
+    <bitmap id="TeamLogo1118" filename="knvb-102x130.png" />
 </drawables>

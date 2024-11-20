@@ -11,6 +11,10 @@ class voetbalApp extends Application.AppBase {
         197 => 0xED1C24,            // PSV
         1118 => 0xF36C21,           // Dutch national
     };
+    static const TEAM_LOGOS = {
+        197 => Rez.Drawables.TeamLogo197,
+        1118 => Rez.Drawables.TeamLogo1118,
+    };
 
     function initialize() {
         AppBase.initialize();
