@@ -1,0 +1,20 @@
+<settings>
+	<setting propertyKey="@Properties.appVersion" title="@Strings.AppVersionTitle">
+		<settingConfig type="alphaNumeric" readonly="true" />
+	</setting>
+
+	<setting propertyKey="@Properties.teams" title="@Strings.TeamsTitle" prompt="Kies teams">
+		<setting title="Team" type="number">
+			<settingConfig id="teamID" type="list">
+				<listEntry value="197">@Strings.TeamPSV</listEntry>
+				<listEntry value="1118">@Strings.TeamNL</listEntry>
+			</settingConfig>
+		</setting>
+
+		<defaults>
+			<entry>
+				<default id="teamID">197</default>
+			</entry>
+		</defaults>
+	</setting>
+</settings>

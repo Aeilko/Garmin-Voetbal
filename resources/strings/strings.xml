@@ -1,14 +1,18 @@
 <strings>
-    <string id="AppName">Voetbal</string>
+	<string id="AppName">Voetbal</string>
 
-    <string id="loading">Loading...</string>
+	<string id="loading">Loading...</string>
 
-    <string id="upcoming_game">Komende wedstrijd</string>
-    <string id="current_game">Momenteel bezig</string>
-    <string id="game_team"> {Opponent} ({Away})</string>
-    <string id="game_time">{date and time}</string>
+	<string id="upcoming_game">Komende wedstrijd</string>
+	<string id="current_game">Momenteel bezig</string>
+	<string id="game_team"> {Opponent} ({Away})</string>
+	<string id="game_time">{date and time}</string>
 
-    <string id="team_197_name">PSV</string>
+	<!-- Teams -->
+	<string id="TeamPSV">PSV</string>
+	<string id="TeamNL">Oranje</string>
 
-    <string id="team_1118_name">Oranje</string>
+	<!-- Settings -->
+	<string id="AppVersionTitle">Versie</string>
+	<string id="TeamsTitle">Teams</string>
 </strings>
