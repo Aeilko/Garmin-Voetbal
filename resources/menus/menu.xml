@@ -1,4 +1,0 @@
-<menu2 id="MainMenu" title="Hoofdmenu">
-    <menu-item id="team_197" label="@Strings.team_197_name" />
-    <menu-item id="team_1118" label="@Strings.team_1118_name" />
-</menu2>
